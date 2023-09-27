@@ -81,3 +81,32 @@ it("works when you click on the left arrow", function () {
     container.querySelector('img[alt="testing image 2"]')
   ).not.toBeInTheDocument();
 });
+
+
+
+it("left/right arrow hidden", function () {
+  const { container, debug } = render(
+    <Carousel
+      photos={TEST_IMAGES}
+      title="images for testing"
+    />
+  );
+
+  debug(container);
+  const leftA = container.querySelector(".bi-arrow-left-circle");
+  const rightA = container.querySelector(".bi-arrow-right-circle");
+  // expect the left arrow to not show when on first image in Carousel
+
+  expect(leftA.getAttribute("style")).toEqual("visibility: hidden;");
+  expect(rightA.getAttribute("style")).toEqual("visibility: visible;");
+
+  // move forward twice in the carousel
+  const rightArrow = container.querySelector(".bi-arrow-right-circle");
+  fireEvent.click(rightArrow);
+  fireEvent.click(rightArrow);
+
+ // expect the right arrow to not show when on last image in Carousel
+ expect(rightA.getAttribute("style")).toEqual("visibility: hidden;");
+  expect(leftA.getAttribute("style")).toEqual("visibility: visible;");
+
+});

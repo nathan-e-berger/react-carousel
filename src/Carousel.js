@@ -36,7 +36,7 @@ function Carousel({ photos, title }) {
         <i
           className="bi bi-arrow-left-circle"
           onClick={goBackward}
-          style={currCardIdx === 0 ? { visibility: "hidden" } : { visibility: "visible" }}
+          style={currCardIdx === 0 ? { visibility:"hidden" } : { visibility:"visible" }}
         />
         <Card
           caption={currCard.caption}
@@ -47,7 +47,7 @@ function Carousel({ photos, title }) {
         <i
           className="bi bi-arrow-right-circle"
           onClick={goForward}
-          style={currCardIdx === photos.length - 1 ? { visibility: "hidden" } : { visibility: "visible" }}
+          style={currCardIdx === photos.length - 1 ? { visibility:"hidden" } : { visibility:"visible" }}
 
         />
       </div>
