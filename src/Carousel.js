@@ -24,7 +24,7 @@ function Carousel({ photos, title }) {
   function goForward() {
     setCurrCardIdx(currCardIdx + 1);
   }
- //Increments currCardIdx state by -1
+  //Increments currCardIdx state by -1
   function goBackward() {
     setCurrCardIdx(currCardIdx - 1);
   }
@@ -36,6 +36,7 @@ function Carousel({ photos, title }) {
         <i
           className="bi bi-arrow-left-circle"
           onClick={goBackward}
+          style={currCardIdx === 0 ? { visibility: "hidden" } : { visibility: "visible" }}
         />
         <Card
           caption={currCard.caption}
@@ -46,6 +47,8 @@ function Carousel({ photos, title }) {
         <i
           className="bi bi-arrow-right-circle"
           onClick={goForward}
+          style={currCardIdx === photos.length - 1 ? { visibility: "hidden" } : { visibility: "visible" }}
+
         />
       </div>
     </div>
